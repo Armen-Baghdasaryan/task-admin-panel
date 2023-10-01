@@ -1,0 +1,67 @@
+$sizes: (0, 1, 2, 3, 4, 8, 12, 14, 16, 18, 20, 22, 24, 32, 40, 42, 48);
+@each $item in $sizes {
+  .p-#{$item} {
+    padding-left: #{$item}px;
+    padding-right: #{$item}px;
+    padding-top: #{$item}px;
+    padding-bottom: #{$item}px;
+  }
+  .px-#{$item} {
+    padding-left: #{$item}px;
+    padding-right: #{$item}px;
+  }
+  .py-#{$item} {
+    padding-top: #{$item}px;
+    padding-bottom: #{$item}px;
+  }
+  .pt-#{$item} {
+    padding-top: #{$item}px;
+  }
+  .pb-#{$item} {
+    padding-bottom: #{$item}px;
+  }
+  .pl-#{$item} {
+    padding-left: #{$item}px;
+  }
+  .pr-#{$item} {
+    padding-right: #{$item}px;
+  }
+  .m-#{$item} {
+    margin-left: #{$item}px;
+    margin-right: #{$item}px;
+    margin-top: #{$item}px;
+    margin-bottom: #{$item}px;
+  }
+  .mx-#{$item} {
+    margin-left: #{$item}px;
+    margin-right: #{$item}px;
+  }
+  .my-#{$item} {
+    margin-top: #{$item}px;
+    margin-bottom: #{$item}px;
+  }
+  .mt-#{$item} {
+    margin-top: #{$item}px;
+  }
+  .mb-#{$item} {
+    margin-bottom: #{$item}px;
+  }
+  .ml-#{$item} {
+    margin-left: #{$item}px;
+  }
+  .mr-#{$item} {
+    margin-right: #{$item}px;
+  }
+
+  .h-#{$item} {
+    height: #{$item}px;
+  }
+
+  .fs-#{$item} {
+    font-size: #{$item}px;
+  }
+
+  .gap-#{$item} {
+    gap: #{$item}px;
+  }
+}

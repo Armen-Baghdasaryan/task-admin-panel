@@ -1,0 +1,20 @@
+default:
+  image: node:18.16.0
+
+build_preview:
+  stage: build
+  except:
+    - main
+  script:
+    - npm install
+    - npm run build
+
+deploy_production:
+  stage: deploy
+  only:
+    - main
+  script:
+    - npm install --global vercel
+    - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+    - vercel build --prod --token=$VERCEL_TOKEN
+    - vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN

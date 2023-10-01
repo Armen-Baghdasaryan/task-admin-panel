@@ -1,0 +1,13 @@
+$sizes: (8, 10, 12, 13, 14, 16, 17, 18, 20, 22, 24, 26, 28, 30, 32, 40, 400, 500, 600, 700);
+
+@each $item in $sizes {
+  .fs-#{$item} {
+    font-size: #{$item}px !important;
+  }
+  .fw-#{$item} {
+    font-weight: #{$item} !important;
+  }
+  .lh-#{$item} {
+    line-height: #{$item}px !important;
+  }
+}
