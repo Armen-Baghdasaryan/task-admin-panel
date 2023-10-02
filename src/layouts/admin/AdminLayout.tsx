@@ -6,7 +6,7 @@ function AdminLayout() {
   return (
     <div className="container">
       <Header />
-      <Layout className='full-height'>
+      <Layout className="full-height">
         <Outlet />
       </Layout>
     </div>

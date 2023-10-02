@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 export const EmailNotVerified: React.FC = () => {
-
   return (
     <>
       <h2>Email not verified</h2>

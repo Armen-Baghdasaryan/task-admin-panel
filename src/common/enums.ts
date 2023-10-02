@@ -1,6 +1,6 @@
 export enum AuthPhase {
-    Init,
-    Logout,
-    Success,
-    Error
+  Init,
+  Logout,
+  Success,
+  Error,
 }
