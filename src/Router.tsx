@@ -15,16 +15,36 @@ type TRoutesParams = {
 
 const protected_routes: RouteObject[] = [
   {
-    path: '/',
+    path: '',
     element: lazyLoadRoutes(() => import('layouts/main/MainLayout.tsx')),
     children: [
       {
-        path: '',
+        path: 'products',
         element: lazyLoadRoutes(() => import('pages/main/MainPage.tsx')),
       },
       {
+        path: 'product/:id',
+        element: lazyLoadRoutes(() => import('pages/main/ProductPage.tsx')),
+      },
+      {
+        path: 'basket',
+        element: lazyLoadRoutes(() => import('pages/main/BasketPage.tsx')),
+      },
+      {
+        path: 'about',
+        element: lazyLoadRoutes(() => import('pages/main/AboutPage.tsx')),
+      },
+      {
+        path: 'delivery',
+        element: lazyLoadRoutes(() => import('pages/main/DeliveryPage.tsx')),
+      },
+      {
+        path: '',
+        element: <Navigate to={'products'} />,
+      },
+      {
         path: '*',
-        element: <Navigate to={`/`} />,
+        element: <Navigate to={''} />,
       },
     ],
   },

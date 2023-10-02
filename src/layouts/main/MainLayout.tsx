@@ -5,7 +5,7 @@ import { Layout } from 'antd';
 const MainLayout = () => {
   return (
     <div className="container">
-      <Header title="Main" />
+      <Header title="Main" type="main" />
       <Layout className="full-height">
         <Outlet />
       </Layout>

@@ -1,20 +1,32 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AuthWrapper } from './providers/AuthWrapper.tsx';
 import { LoadingScreen } from './components/LoadingScreen';
-import { Provider } from 'react-redux';
 import Router from './Router.tsx';
-import { store } from 'store';
-import './index.scss';
+import { getProducts, setProducts } from 'store/products/slice.ts';
+import { useDispatch } from 'react-redux';
+import { getBasketProducts } from 'store/basket/slice.ts';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBasketProducts());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <AuthWrapper>
-        <Suspense fallback={<LoadingScreen />}>
-          <Router />
-        </Suspense>
-      </AuthWrapper>
-    </Provider>
+    <AuthWrapper>
+      <Suspense fallback={<LoadingScreen />}>
+        <Router />
+      </Suspense>
+    </AuthWrapper>
   );
 }
 

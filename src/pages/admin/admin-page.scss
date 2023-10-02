@@ -1,0 +1,12 @@
+.admin__add {
+  padding: 16px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ .custom-description-cell {
+  max-width: 700px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

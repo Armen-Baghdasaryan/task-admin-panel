@@ -10,7 +10,10 @@
   font-style: normal;
   font-display: swap;
   text-align: center;
+}
 
+* {
+  box-sizing: border-box;
 }
 
 .container {
@@ -23,4 +26,8 @@
 
 .full-height {
   min-height: 100vh;
+}
+
+.w-100 {
+  width: 100%;
 }

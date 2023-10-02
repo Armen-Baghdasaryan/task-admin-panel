@@ -10,6 +10,7 @@
   background: $white;
   border-bottom: 1px solid #f0f0f0;
   font-size: 22px;
+  box-sizing: border-box;
 
   @media (max-width: 767px) {
     h2 {
@@ -17,3 +18,44 @@
     }
   }
 }
+
+.menu__items {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+
+.active {
+  color: #0909f8;
+}
+
+.basket__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+}
+
+.basket {
+  cursor: pointer;
+  margin-right: 16px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid $black;
+  gap: 5px;
+}
+

@@ -22,7 +22,7 @@ const initialState: TAuthState = {
   isAdmin: !!localStorage.getItem(IS_ADMIN_KEY),
 };
 
-const auth = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -73,6 +73,6 @@ export const {
   setRegisterSuccess,
   setRegisterError,
   setIsAdmin,
-} = auth.actions;
+} = authSlice.actions;
 
-export default auth.reducer;
+export default authSlice.reducer;

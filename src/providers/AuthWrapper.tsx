@@ -6,7 +6,7 @@ import { LoginError } from 'components/auth/LoginError';
 import { getAuthError, getAuthPhase, getUserToken, setAuthSuccess } from 'store/auth';
 import { AuthPhase } from '../common/enums.ts';
 import { AUTH_TOKEN_KEY } from '../common/storage-keys.ts';
-import { LoginRedirect } from '../components/auth/LoginRedirect.tsx';
+import { LoginRedirect } from 'components/auth/LoginRedirect.tsx';
 
 type Props = {
   children: React.ReactNode;
