@@ -4,13 +4,10 @@ import AddProductModal from 'components/AddProductModal/AddProductModal';
 import { useDispatch } from 'react-redux';
 import { toggleModal } from 'store/products';
 import EditProductModal from 'components/EditProductModal/EditProductModal';
-import { IProduct } from 'interfaces/product';
-import { useState } from 'react';
 import './admin-page.scss';
 
 const AdminPage = () => {
   const dispatch = useDispatch();
-  const [currentProduct, setCurrentProduct] = useState<IProduct | null>(null);
 
   return (
     <div className="admin__wrapper">
@@ -20,10 +17,10 @@ const AdminPage = () => {
         </Button>
       </div>
       <div>
-        <ProductsTable setCurrentProduct={setCurrentProduct} />
+        <ProductsTable />
       </div>
       <AddProductModal />
-      <EditProductModal currentProduct={currentProduct} />
+      <EditProductModal />
     </div>
   );
 };

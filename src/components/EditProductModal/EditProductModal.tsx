@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TRootState } from 'store';
 import { editProduct, toggleEditModal } from 'store/products';
 import { IProduct } from 'interfaces/product';
+import { useEffect } from 'react';
 
 export type FormValues = {
   name: string;
@@ -11,19 +12,28 @@ export type FormValues = {
   price: number;
 };
 
-interface PageProps {
-  currentProduct: IProduct | null;
-}
-
-const EditProductModal = ({ currentProduct }: PageProps) => {
+const EditProductModal = () => {
   const [formEdit] = Form.useForm();
-  const { openEditModal } = useSelector((store: TRootState) => store.products);
+  const { openEditModal, currentProduct } = useSelector((store: TRootState) => store.products);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (currentProduct) {
+      formEdit.setFieldsValue({
+        name: currentProduct.name,
+        decription: currentProduct.decription,
+        type: currentProduct.type,
+        price: currentProduct.price,
+      });
+    }
+  }, [currentProduct, formEdit]);
 
   const handleCancel = () => {
     formEdit.resetFields();
     dispatch(toggleEditModal(false));
   };
+
+  if (!currentProduct) return
 
   const onSubmit = (values: FormValues) => {
     formEdit.resetFields();

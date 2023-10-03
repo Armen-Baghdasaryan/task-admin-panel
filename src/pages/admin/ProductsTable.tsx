@@ -4,15 +4,11 @@ import { Button, Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { TRootState } from 'store';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { deleteProduct, toggleEditModal } from 'store/products';
+import { deleteProduct, setCurrentProduct, toggleEditModal } from 'store/products';
 import { IProduct } from 'interfaces/product';
 import './admin-page.scss';
 
-interface PageProps {
-  setCurrentProduct: (product: IProduct | null) => void;
-}
-
-const ProductsTable = ({ setCurrentProduct }: PageProps) => {
+const ProductsTable = () => {
   const { products } = useSelector((store: TRootState) => store.products);
   const dispatch = useDispatch();
 
@@ -73,8 +69,10 @@ const ProductsTable = ({ setCurrentProduct }: PageProps) => {
   };
 
   const handleEdit = (record: IProduct) => {
-    setCurrentProduct(record);
-    dispatch(toggleEditModal(true));
+    dispatch(setCurrentProduct(record))
+    setTimeout(() => {
+      dispatch(toggleEditModal(true));
+    }, 100)
   };
 
   const handleDelete = (productId: string) => {

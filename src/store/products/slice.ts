@@ -6,11 +6,13 @@ export type TProductsState = {
   products: IProduct[];
   openModal: boolean;
   openEditModal: boolean;
+  currentProduct: IProduct | null
 };
 
 const initialState: TProductsState = {
   openModal: false,
   openEditModal: false,
+  currentProduct: null,
   products: [
     {
       id: '1',
@@ -53,8 +55,8 @@ const initialState: TProductsState = {
       qty: 1,
     },
     {
-      id: 'Orange',
-      name: 'Coca Cola',
+      id: '5',
+      name: 'Orange',
       decription:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, sequi numquam harum natus earum similique repellendus delectus facere, ex a magnam porro nulla quia dicta tenetur tempore labore. Cupiditate, est.',
       imgPath: '',
@@ -90,6 +92,9 @@ const productsSlice = createSlice({
       state.products = state.products.filter((i) => i.id !== action.payload);
       localStorage.setItem(PRODUCTS, JSON.stringify(state.products));
     },
+    setCurrentProduct: (state, action: PayloadAction<IProduct>) => {
+      state.currentProduct = action.payload
+    },
     toggleModal: (state, action: PayloadAction<boolean>) => {
       state.openModal = action.payload;
     },
@@ -114,7 +119,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setProducts, getProducts, deleteProduct, toggleModal, toggleEditModal, addProduct, editProduct } =
+export const { setProducts, getProducts, deleteProduct, setCurrentProduct, toggleModal, toggleEditModal, addProduct, editProduct } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
